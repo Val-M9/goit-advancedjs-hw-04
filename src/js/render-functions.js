@@ -7,6 +7,7 @@ const refs = {
   searchForm: document.querySelector('.form'),
   gallery: document.querySelector('.gallery'),
   loader: document.querySelector('.loader'),
+  loadMore: document.querySelector('.load-more-btn'),
 };
 
 const lightbox = new SimpleLightbox('.gallery-link', {
@@ -20,6 +21,15 @@ const showError = (message) => {
     message:
       message ||
       'Sorry, there are no images matching your search query. Please try again!',
+    position: 'topRight',
+    transitionIn: 'fadeInDown',
+  });
+};
+
+const showNotification = (message) => {
+  return iziToast.info({
+    title: 'Info',
+    message: message,
     position: 'topRight',
     transitionIn: 'fadeInDown',
   });
@@ -73,9 +83,9 @@ const renderGallery = (images) => {
   }
 
   const markup = images.map((image) => createImageElement(image)).join('');
-  refs.gallery.innerHTML = markup;
+  refs.gallery.insertAdjacentHTML('beforeend', markup);
 
   lightbox.refresh();
 };
 
-export { showError, createImageElement, renderGallery, refs };
+export { showError, showNotification, createImageElement, renderGallery, refs };

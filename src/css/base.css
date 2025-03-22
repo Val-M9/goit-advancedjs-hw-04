@@ -41,3 +41,22 @@ body {
 main {
   flex-grow: 1;
 }
+
+.btn {
+  padding: 8px 16px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background-color: rgba(var(--dark-blue-cl));
+  color: rgba(var(--white-cl));
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color var(--fast-trans);
+}
+
+.btn:hover {
+  background-color: rgba(var(--light-blue-cl));
+}
